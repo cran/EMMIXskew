@@ -14,8 +14,8 @@
 
 *******************************
 
-      do 100 h=1,g
-      do 100 j=1,p
+      do h=1,g
+       do j=1,p
 
         sum=zero
 
@@ -25,7 +25,7 @@
           sum=sum+(( y(i,j)-mu(j,h))*tau(i,h))**3
         enddo
 
-        sum=sum/sumtau(h)/(sigma(j,j,h)**(3/2))
+        sum=sum/sumtau(h)/(sigma(j,j,h)**(3.0/2))
 
         if(abs(sum)  .le. cut) then
             sum= zero
@@ -37,9 +37,11 @@
 
         endif
 
-	delta(j,h)=sum
+        delta(j,h)=sum
 
-100   continue
+* 100   continue
+       enddo
+      enddo  
 
       return
       end
@@ -339,10 +341,10 @@ c  fun := dnorm(x)/pnorm(x)
 c          temp = tempyy/two
 c     &    -log(two*mvphin(tempyd/sqrt(one-tempdd)))
 
-	  check = tempyd/sqrt(one-tempdd)
+      check = tempyd/sqrt(one-tempdd)
 
           if(check .lt. -10.0) check=-10.0
-	   
+   
           temp = tempyy/two-log(two*mvphin(check))
 
 
@@ -478,7 +480,7 @@ c-----------------------------------------------------------------------------
           check = tempyd/sqrt(one-tempdd)
 
           if(check .lt. -10.0) check=-10.0
-	   
+   
           temp = tempyy/two-log(two*mvphin(check))
 
           tau(i,k) = -(const+temp)
@@ -925,7 +927,7 @@ c-----------------------------------------------------------------------------
 
           ez1v(i,k)=tmpyd/(one+tmpdd)*ev(i,k)+value2/sqrt(one+tmpdd)
           
-	  ez2v(i,k)=(tmpyd/(one+tmpdd))**2*ev(i,k)+one/(one+tmpdd)
+      ez2v(i,k)=(tmpyd/(one+tmpdd))**2*ev(i,k)+one/(one+tmpdd)
      &      +tmpyd*value2/(one+tmpdd)/sqrt(one+tmpdd)
 
           ewy(i,k)=tmpyd/(one+tmpdd)+value3/sqrt(one+tmpdd)

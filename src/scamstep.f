@@ -112,30 +112,32 @@ c   calculate the means
 
 
 c   calculate the variances
-      do 1000 h=1,g
+      do h=1,g
 
-          do 200 k=1,p
-            do 200 j=1,k
+          do k=1,p
+            do j=1,k
        
-	sum=zero
+               sum=zero
         
-	do i=1,n
+               do i=1,n
 
       sum=sum+(y(i,j)-mu(j,h))*( y(i,k)-mu(k,h))*tau(i,h)
      &-(delta(j,h)*ev(i,h) )*( y(i,k)-mu(k,h))*tau(i,h)
      &-(delta(k,h)*ev(i,h) )*( y(i,j)-mu(j,h))*tau(i,h)
      &+delta(j,h)*delta(k,h)*vv(i,h)*tau(i,h)
       
-	enddo
+               enddo
 
           ewyy(j,k,h)=sum
 
           ewyy(k,j,h)=sum       
 
-200     continue
+*200     continue
+            end do
+          end do
 
-1000  continue
-
+*1000  continue
+      end do
       return
       end
 

@@ -1,7 +1,7 @@
 #include "emmix.h"
 
 
-void ddmix(double *x, int *pn, int *pp, int *pg,int *pdist,
+void ddmix2(double *x, int *pn, int *pp, int *pg,int *pdist,
 const double *mu, const double *sigma, const double *dof,const double *delta,
 double *den, int *pinfo)
 {

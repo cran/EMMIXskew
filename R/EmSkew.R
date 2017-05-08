@@ -698,7 +698,7 @@ list(subset=select,clust=clust,filter=obj)
 
 
 
-
+#------------------------------------------------------------------------------#
 EmSkew.contours <- function (S, obj = NULL, clust = NULL,distr="",diag.panel = TRUE, upper.panel = "type2", 
     lower.panel = "type3", levels = seq(5, 95, by = 20), plot=TRUE, title="",path='',attop = FALSE) 
 {
@@ -769,7 +769,7 @@ dev.off()
 }
 
 }
-
+#------------------------------------------------------------------------------#
 
 
 EmSkew.flow <-function(S,obj=NULL,distr="",diag.panel=TRUE,
@@ -919,7 +919,7 @@ stop(paste("dof should be a ",g, " vector!"))
 if(length(c(delta)) != (p*g))
 stop(paste("delta should be a ",p, 'by', g, " array!"))
 
-obj<-.C('ddmix',PACKAGE="EMMIXskew",
+obj<-.C('ddmix2',PACKAGE="EMMIXskew",
 as.double(dat),as.integer(n),
 as.integer(p),as.integer(g),as.integer(ndist),
 as.double(mu),as.double(sigma),

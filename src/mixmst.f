@@ -71,10 +71,10 @@ c-----------------------------------------------------------------------------
         sumzt(k)  =sum3
         sumlnv(k) =sum4
         
-	pro(k)=sumtau(k)/dble(n)
+        pro(k)=sumtau(k)/dble(n)
 
         if(sumtau(k) .lt. two) then
-	   pro(k)=zero    
+          pro(k)=zero    
         endif
 
       end do
@@ -117,7 +117,7 @@ c   calculate the variances
         do 200 j=1,p
           do 200 k=j,p
 
-	    sum=zero
+            sum=zero
 
             do i=1,n
       sum=sum+((y(i,j)-mu(j,h)  )*( y(i,k)-mu(k,h))*ev(i,h)
@@ -131,7 +131,7 @@ c   calculate the variances
             else
               sigma(k,j,h)=sum/sumtau(h)
             endif
-	   
+            
             sigma(j,k,h)=sigma(k,j,h)
 
 200     continue
@@ -143,8 +143,8 @@ c   calculate the variances
       endif
 
 c   calculate the means
-      do 10 h=1,g
-       do 10 j=1,p
+      do h=1,g
+       do j=1,p
          sum=zero
          tmp=zero
 
@@ -152,7 +152,7 @@ c   calculate the means
          sum=sum+( y(i,j)*ev(i,h)
      &   - delta(j,h)*ez1v(i,h))*tau(i,h)
          tmp=tmp+(y(i,j)-mu(j,h))*(ez1v(i,h)*tau(i,h))
-	 end do
+         end do
 
          if(sumtau(h)  .lt. two) then
            mu(j,h)    = zero
@@ -162,7 +162,9 @@ c   calculate the means
            delta(j,h)=tmp/sumzt(h)
          endif
 
-10    continue
+*10    continue
+       end do
+      end do
 
       return
       end

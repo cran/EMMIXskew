@@ -152,11 +152,11 @@ c calculate the loglikelihood
 
 c-----------------------------------------------------------------------------
 
-      do 100 k=1,g
+      do k=1,g
         
-	sum1=zero
-	sum2=zero
-	sum3=zero
+        sum1=zero
+        sum2=zero
+        sum3=zero
 
         do i=1,n
 
@@ -164,25 +164,26 @@ c-----------------------------------------------------------------------------
 
           if(clust(i)==k) tau(i,k)=one
           
-	  sum1 = sum1+tau(i,k)
+          sum1 = sum1+tau(i,k)
           sum2 = sum2+tau(i,k)*xuu(i,k)
           sum3 = sum3+tau(i,k)*(log(xuu(i,k))-xuu(i,k))
 
         enddo
 
-	sumtau(k)=sum1
+        sumtau(k)=sum1
         sumxuu(k)=sum2
 
-	temp = (dble(p) +dof(k))/two;
+        temp = (dble(p) +dof(k))/two;
         sumxuuln(k) = sum3-(log(temp)-mydigamma(temp))*sumtau(k)
 
-	pro(k)=sumtau(k)/dble(n)
+        pro(k)=sumtau(k)/dble(n)
 
         if(sumtau(k) .lt. two) then
-	   pro(k)=zero    
+          pro(k)=zero    
         endif
 
-100   continue
+*100   continue
+       end do
 c-----------------------------------------------------------------------------
       return
       end

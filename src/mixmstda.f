@@ -72,7 +72,7 @@ c   start of EM algorithm loop
 
       do it=1,g
          
-	 method(it)=1
+        method(it)=1
       
       end do
 
@@ -187,15 +187,15 @@ c calculate the loglikelihood
           sum4=sum4+elnv(i,k)*tau(i,k)
         enddo
 
-	sumtau(k)=sum1
+        sumtau(k)=sum1
         sumzt(k)=sum2
         sumvt(k)=sum3
         sumlnv(k)=sum4
 
-	pro(k)=sumtau(k)/dble(n)
+        pro(k)=sumtau(k)/dble(n)
 
         if(sumtau(k) .lt. two) then
-	   pro(k)=zero    
+          pro(k)=zero    
         endif
 
       end do

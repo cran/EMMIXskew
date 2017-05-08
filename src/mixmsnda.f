@@ -148,29 +148,30 @@ c calculate the loglikelihood
       endif
 
 
-      do 10 h=1,g
+      do h=1,g
         sum = zero
         tmp = zero
         
-	do i=1,n
+       do i=1,n
          tau(i,h)=zero
          if(clust(i) .eq. h) tau(i,h)=one
 
-	 sum = sum + tau(i,h)
+         sum = sum + tau(i,h)
          tmp = tmp + vv(i,h)*tau(i,h)
-        end do
+       end do
 
-	sumtau(h)=sum
-        sumev(h) =tmp
+       sumtau(h)=sum
+       sumev(h) =tmp
 
-	pro(h)=sumtau(h)/dble(n)
+       pro(h)=sumtau(h)/dble(n)
 
-        if(sumtau(h) .lt. two) then
-	   pro(h)=zero
-        endif
+       if(sumtau(h) .lt. two) then
+          pro(h)=zero
+      endif
 
-10    continue
-
+*10    continue
+       end do
+     
 c-----------------------------------------------------------------------------
 
       return

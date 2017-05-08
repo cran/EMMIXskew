@@ -41,25 +41,25 @@ c-----------------------------------------------------------------------------
         return
       endif
 
-      do 10 k=1,g
+      do k=1,g
         sum = zero
         tmp = zero
         
-	do i=1,n
+      do i=1,n
           sum = sum + tau(i,k)
           tmp = tmp + vv(i,k)*tau(i,k)
-        end do
+      end do
 
-	sumtau(k)=sum
-        sumev(k) =tmp
+      sumtau(k)=sum
+      sumev(k) =tmp
 
-	pro(k)=zero
+      pro(k)=zero
 
-        if(sumtau(k) .ge. two) then
-	   pro(k)    =sumtau(k)/dble(n)
-        endif
-10    continue
-
+      if(sumtau(k) .ge. two) then
+        pro(k)    =sumtau(k)/dble(n)
+      endif
+*10    continue
+      end do
       return
       end
 
@@ -80,8 +80,8 @@ c---------------------------------------------------------------------
 c---------------------------------------------------------------------
 
 c   calculate the means
-      do 100 h=1,g
-       do 100 j=1,p
+      do h=1,g
+       do j=1,p
          sum=zero
          tmp=zero
 
@@ -98,17 +98,18 @@ c   calculate the means
             delta(j,h) = tmp/sumev(h)
          endif
 
-100   continue
-
+*100   continue
+       end do
+      end do 
 
 c   calculate the variances
-      do 1000 h=1,g
+      do h=1,g
 
 
-          do 200 k=1,p
-            do 200 j=1,k
-	      
-	      sum=zero
+          do k=1,p
+            do j=1,k
+   
+      	sum=zero
 
               do i=1,n
 
@@ -118,7 +119,7 @@ c   calculate the variances
      & -(delta(k,h)*ev(i,h))*(y(i,j)-mu(j,h))
      & +(delta(j,h)*delta(k,h)*vv(i,h)))*tau(i,h)
               
-	      enddo
+          enddo
 
           if(sumtau(h) .gt. two) then
             sigma(j,k,h)= sum/sumtau(h)
@@ -128,10 +129,11 @@ c   calculate the variances
 
           sigma(k,j,h)=sigma(j,k,h)
 
-200     continue
-
-1000  continue
-
+*200     continue
+            end do
+          end do
+*1000  continue
+      end do
       call getcov(sigma,sumtau,n,p,g,ncov)
 
 

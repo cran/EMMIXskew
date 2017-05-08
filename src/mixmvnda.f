@@ -150,7 +150,7 @@ c-----------------------------------------------------------------------------
         pro(k)=sumtau(k)/dble(n)
 
         if(sumtau(k) .lt. two) then
-	   pro(k)=zero    
+          pro(k)=zero    
         endif
 
       end do

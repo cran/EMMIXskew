@@ -1,8 +1,10 @@
-useDynLib(EMMIXskew)
-
+useDynLib(EMMIXskew, .registration = TRUE)
 importFrom(mvtnorm,rmvnorm)
 import(lattice)
 import(KernSmooth)
+import(graphics)
+import(stats)
+import(grDevices)
 
 export("EmSkew","EmSkewMOD",
 "init.mix","initEmmix","getICL",
