@@ -25,7 +25,7 @@
           sum=sum+(( y(i,j)-mu(j,h))*tau(i,h))**3
         enddo
 
-        sum=sum/sumtau(h)/(sigma(j,j,h)**(3.0/2))
+        sum=sum/sumtau(h)/(sigma(j,j,h)**(1))
 
         if(abs(sum)  .le. cut) then
             sum= zero

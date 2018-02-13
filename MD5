@@ -1,4 +1,4 @@
-aeb1898c3c022c0668b0fdd8b3ff3321 *DESCRIPTION
+c171995c92991e39bd3ac46479fbba9b *DESCRIPTION
 d2516863712306348bc9bb93018fbd2d *NAMESPACE
 b47b5d4ceb4b46ae2f8cb81eaf9e14ad *R/EmSkew.R
 7ed1c8675e3d5a2fcb5e36a8c5b98a5a *man/EmSkew.Rd
@@ -20,10 +20,10 @@ f920494e76b6ab884631dcf59431607c *man/getcov.Rd
 eb19f72de5e77f70c84d8a413a631ac2 *man/inverse.Rd
 647a4283818d14c28412ecb23ca4c859 *man/mvt.dof.Rd
 aab74da6404ceac98208e7a8b61bb3e8 *man/rdemmix.Rd
-c7ca8c8edf44b241756bf1b8a4caa54e *src/EMMIXskew_init.c
-6e1e93543b9bf21cb866b2b9c7918a71 *src/Makevars
+babc0a59d25d9f5617b193e4f0ca2d88 *src/EMMIXskew_init.c
+3996e7c16bfb96fad295ee425815cb4d *src/Makevars
 505b138aa3bbd1cb00265908947e2bd1 *src/density.c
-e358458e1c318ed47258f658a9b6af72 *src/density2.f
+317822dd890094ae2b5b888a86903018 *src/density2.f
 435a78d9844f958506e73f5c39905e7d *src/distance.c
 4a77c085ba789c4fc6bac53021fac0d5 *src/emmix.h
 486aa211ba099c4e013dc8b4a573a525 *src/estep.c

@@ -2,7 +2,7 @@
 #include <stdlib.h> // for NULL
 #include <R_ext/Rdynload.h>
 
-/* FIXME: 
+/* FIXME:
    Check these declarations against the C/Fortran source code.
 */
 
@@ -19,7 +19,7 @@ extern void mahalonobis_(void *, void *, void *, void *, void *, void *);
 extern void F77_NAME(inverse3)(void *, void *, void *, void *, void *, void *, void *);
 
 static const R_CMethodDef CEntries[] = {
-    {"ddmix2",        (DL_FUNC) &ddmix2,        11},
+    {"ddmix2",       (DL_FUNC) &ddmix2,       11},
     {"emskewfit1",   (DL_FUNC) &emskewfit1,   32},
     {"emskewfit2",   (DL_FUNC) &emskewfit2,   28},
     {"initfit_",     (DL_FUNC) &initfit_,     27},
